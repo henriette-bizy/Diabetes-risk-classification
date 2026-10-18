@@ -1,0 +1,9 @@
+# Raw data lives in Google Drive, never in the repo
+data/
+*.csv
+*.zip
+# Generated outputs
+artifacts/
+logs/
+__pycache__/
+.ipynb_checkpoints/
