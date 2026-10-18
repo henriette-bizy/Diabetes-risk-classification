@@ -2,7 +2,7 @@
 
 **Author:** Henriette Biziyaremye, BSc Software Engineering, African Leadership University
 
-**Report:** _add link_ · **Google Drive (raw data + saved models):** _add link_ · **Video:** _add link_
+**Report:**(https://docs.google.com/document/d/1m7Qt7ZBqEROryKfmR2j55tAxvVWyipu7EMo39dr5g4I/edit?usp=sharing) · **Google Drive (raw data + saved models):** [_add link_](https://drive.google.com/drive/folders/1JAQ_vD0VWMjZMe3WP11K2_imcn0Y95OS?usp=sharing) · **Video:** https://youtu.be/VEm7jgyDYVs
 
 ## What this project is about
 
@@ -88,7 +88,14 @@ probabilities = model.predict_proba(raw_rows)   # columns: no diabetes, prediabe
 
 ## Main results
 
-_Add after the final run: the test macro-F1 and ROC-AUC of the best traditional and best deep learning model, and two or three sentences on what they mean._
+Test set: 38,052 respondents the models never saw during training or tuning.
+
+| Model | Macro-F1 (95% CI) | ROC-AUC (95% CI) | Diabetes recall | Training time |
+|---|---|---|---|---|
+| ML-04: logistic regression, C = 0.01, square-root class weights | 0.448 (0.444–0.453) | 0.781 (0.773–0.788) | 48.9% | 13 s |
+| DL-09: Wide & Deep network, square-root class weights | 0.454 (0.450–0.458) | 0.783 (0.775–0.790) | 54.0% | 138 s |
+
+The network catches 268 more people with diabetes at the same precision, but it is ten times slower to train and much harder to interpret. Across all 21 experiments, the way class imbalance was handled changed results more than the choice of model, and every model hit a similar ceiling of about 0.78 ROC-AUC. Neither final model could detect prediabetes. With a cut-off tuned for 80% recall, the network would refer 37.7% of people for a blood test and still find four in five of those at risk.
 
 ## Limitations
 
